@@ -1,0 +1,12 @@
+{
+  "rules": [
+    {
+      "pattern": "gets(",
+      "message": "Unsafe function gets() used"
+    },
+    {
+      "pattern": "scanf(",
+      "message": "Check scanf usage (possible buffer overflow)"
+    }
+  ]
+}
