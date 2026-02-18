@@ -2,11 +2,17 @@
   "rules": [
     {
       "pattern": "gets(",
-      "message": "Unsafe function gets() used"
+      "message": "Unsafe function gets() used",
+      "severity": "HIGH",
+      "category": "Security",
+      "suggestion": "Use fgets() instead"
     },
     {
-      "pattern": "scanf(",
-      "message": "Check scanf usage (possible buffer overflow)"
+      "pattern": "printf(",
+      "message": "Check if format string is controlled",
+      "severity": "MEDIUM",
+      "category": "Security",
+      "suggestion": "Ensure user input is validated"
     }
   ]
 }

@@ -1,11 +1,9 @@
 import json
 
-def load_rules():
-    with open("rules/rules.json", "r") as f:
-        return json.load(f)["rules"]
-
 def check_rules(files_data):
-    rules = load_rules()
+    with open("rules/rules.json") as f:
+        rules = json.load(f)["rules"]
+
     issues = []
 
     for file_path, lines in files_data.items():
@@ -15,7 +13,10 @@ def check_rules(files_data):
                     issues.append({
                         "file": file_path,
                         "line": line_no,
-                        "issue": rule["message"]
+                        "message": rule["message"],
+                        "severity": rule["severity"],
+                        "category": rule["category"],
+                        "suggestion": rule["suggestion"]
                     })
 
     return issues
