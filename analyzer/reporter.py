@@ -1,6 +1,8 @@
 import sys
+import json
 
-def generate_report(issues):
+
+def generate_report(issues, export_json=False, fail_on="HIGH"):
     print("========== AUTOMATED C CODE AUDIT REPORT ==========\n")
 
     high = 0
@@ -22,6 +24,13 @@ def generate_report(issues):
         elif issue["severity"] == "LOW":
             low += 1
 
+    summary = {
+        "HIGH": high,
+        "MEDIUM": medium,
+        "LOW": low,
+        "TOTAL": len(issues)
+    }
+
     print("\n============== SUMMARY ==============")
     print(f"HIGH   : {high}")
     print(f"MEDIUM : {medium}")
@@ -29,9 +38,28 @@ def generate_report(issues):
     print(f"TOTAL  : {len(issues)}")
     print("=====================================\n")
 
-    if high > 0:
-        print("Build FAILED due to HIGH severity violations.")
+    # JSON Export (if enabled)
+    if export_json:
+        report_data = {
+            "issues": issues,
+            "summary": summary
+        }
+
+        with open("audit_report.json", "w", encoding="utf-8") as f:
+            json.dump(report_data, f, indent=4)
+
+        print("JSON report generated: audit_report.json\n")
+
+    # Fail logic
+    severity_count = {
+        "HIGH": high,
+        "MEDIUM": medium,
+        "LOW": low
+    }
+
+    if fail_on != "NONE" and severity_count.get(fail_on, 0) > 0:
+        print(f"Build FAILED due to {fail_on} severity violations.")
         sys.exit(1)
     else:
-        print("Build PASSED (No HIGH severity issues).")
+        print("Build PASSED.")
         sys.exit(0)

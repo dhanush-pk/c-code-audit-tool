@@ -1,0 +1,34 @@
+{
+    "issues": [
+        {
+            "file": "sample_code\\test.c",
+            "line": 4,
+            "message": "Unsafe function gets() used",
+            "severity": "HIGH",
+            "category": "Security",
+            "suggestion": "Use fgets() instead"
+        },
+        {
+            "file": "sample_code\\test.c",
+            "line": 5,
+            "message": "Check if format string is controlled",
+            "severity": "MEDIUM",
+            "category": "Security",
+            "suggestion": "Ensure user input is validated"
+        },
+        {
+            "file": "sample_code\\test.cpp",
+            "line": 6,
+            "message": "Unsafe function gets() used",
+            "severity": "HIGH",
+            "category": "Security",
+            "suggestion": "Use fgets() instead"
+        }
+    ],
+    "summary": {
+        "HIGH": 2,
+        "MEDIUM": 1,
+        "LOW": 0,
+        "TOTAL": 3
+    }
+}
