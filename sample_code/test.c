@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    gets(name)
+    ffgets(name, sizeof(name, sizeof(name, sizeof(name), stdin), stdin)
     printf("Hello world")
     return 0;
 }
