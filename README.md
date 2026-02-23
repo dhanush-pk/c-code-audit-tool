@@ -3,6 +3,8 @@
 A lightweight Static Code Analysis Tool designed to detect security vulnerabilities in C and C++ source files.
 This tool scans source code, identifies insecure coding patterns, classifies issues by severity levels, and generates structured audit reports with suggested remediation steps.
 
+
+
 📌 Project Overview
 
 C and C++ are powerful system-level programming languages but are highly susceptible to memory-related vulnerabilities such as:
@@ -27,6 +29,8 @@ Enforcing build failures for critical issues
 
 Supporting automation via CLI
 
+
+
 🎯 Objectives
 
 Detect unsafe coding patterns in C/C++ source files
@@ -39,7 +43,9 @@ Simulate CI/CD security enforcement
 
 Demonstrate modular and extensible tool design
 
+
 🏗️ Architecture Overview
+
 
 The system follows a modular architecture:
 
@@ -73,6 +79,8 @@ Suggested fix
 6️⃣ A structured report is generated
 7️⃣ If HIGH severity issues exist → build fails
 
+
+
 🚀 Features
 
 🔍 Recursive directory scanning
@@ -88,6 +96,8 @@ HIGH
 MEDIUM
 
 LOW
+
+
 
 🛠 Suggested secure alternatives
 
@@ -120,6 +130,8 @@ Export JSON Report
 python main.py --path . --json
 Fail Build Based on Severity
 python main.py --path . --fail-on HIGH
+
+
 📄 Example Output
 ========== AUTOMATED C CODE AUDIT REPORT ==========
 
@@ -135,8 +147,9 @@ MEDIUM : 0
 LOW    : 0
 TOTAL  : 1
 =====================================
-
 Build FAILED due to HIGH severity violations.
+
+
 🧠 Example Rule (rules.json)
 {
   "pattern": "gets(",
@@ -236,8 +249,4 @@ BCA Student |
 
 GitHub: https://github.com/dhanush-pk
 
-📄 License
 
-This project is developed for educational and demonstration purposes.
-
-⭐ If you find this project useful, consider giving it a star!
