@@ -146,7 +146,23 @@ VS Code extension integration
 
 CI/CD pipeline support
 
+:
 
+🎯 Problem solved:
+
+C/C++ code has security issues that compilers often miss — this tool finds them automatically.
+
+🧱 Modular Design:
+scanner → rule engine → reporter → auto-fix → CI
+
+⚙️ Extensibility:
+Rules are JSON, so new checks can be added without changing code.
+
+🧪 CI Integration:
+GitHub Actions runs analysis on every push/PR → this helps enforce quality early.
+
+💡 Future Scope:
+Add AST-based parsing, improve rule detection, integrate VS Code plugin.
 
 👨‍💻 Author
 
